@@ -7,3 +7,7 @@
   height: 96px;
   object-fit: none;
 }
+
+body {
+  background-color: #F9F4ED;
+}

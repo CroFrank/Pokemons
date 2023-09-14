@@ -6,8 +6,6 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import { useState } from 'react'
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
@@ -17,8 +15,11 @@ import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
+import HomeIcon from '@mui/icons-material/Home';
+import InfoIcon from '@mui/icons-material/Info';
+import { Link } from 'react-router-dom';
 
-export default function TemporaryDrawer() {
+export default function Navbar() {
     const [state, setState] = useState(false);
 
     const toggleDrawer =
@@ -47,9 +48,11 @@ export default function TemporaryDrawer() {
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                                {index % 2 === 0 ? <Link to={'/Pokemons'}><HomeIcon /></Link> : <Link to={'/Pokemons/info'}><InfoIcon /></Link>}
                             </ListItemIcon>
-                            <ListItemText primary={text} />
+                            <Link to={text === 'Home' ? '/Pokemons' : '/Pokemons/info'}>
+                                <ListItemText primary={text} />
+                            </Link>
                         </ListItemButton>
                     </ListItem>
                 ))}

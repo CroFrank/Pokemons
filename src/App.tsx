@@ -1,14 +1,26 @@
-import AllPokemons from "./components/AllPokemons"
-import TemporaryDrawer from "./layout/navbar"
+import { AllPokemons, HomeLayout, Info } from "./pages"
+import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
+const router = createBrowserRouter([
+  {
+    path: 'Pokemons',
+    element: <HomeLayout />,
+    children: [
+      {
+        index: true,
+        element: <AllPokemons />,
+      },
+      {
+        path: 'info',
+        element: <Info />,
+      },
+    ],
+  },
+])
 
 export default function App() {
-
-
-  return (
-    <>
-      <TemporaryDrawer />
-      <AllPokemons />
-    </>
-  )
+  return <RouterProvider router={router} />
 }
+
+
 
