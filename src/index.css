@@ -1,0 +1,9 @@
+.MuiCardMedia-root {
+  max-width: 96px;
+  /* Set your desired maximum width */
+  max-height: 96px;
+  /* Set your desired maximum height */
+  width: 96px;
+  height: 96px;
+  object-fit: none;
+}
