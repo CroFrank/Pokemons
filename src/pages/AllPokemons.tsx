@@ -15,7 +15,11 @@ export function AllPokemons() {
     const location = useLocation()
 
     useEffect(() => {
-        setData(location.state)
+        if (location.state) {
+            setData(location.state)
+        } else {
+            setData(sourceData)
+        }
     }, [location.state])
 
     return <>

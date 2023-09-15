@@ -72,7 +72,7 @@ export default function Navbar() {
             const response = await axios('https://pokeapi.co/api/v2/pokemon?limit=151');
             const data = response.data.results
             const result = data.filter((pokemon: Pokemon) => {
-                return pokemon && pokemon.name && pokemon.name.toLocaleLowerCase().includes(value)
+                return value && pokemon && pokemon.name && pokemon.name.toLocaleLowerCase().includes(value)
             })
             navigate('/Pokemons/', { replace: true, state: result })
             console.log(result)
