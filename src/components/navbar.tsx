@@ -55,9 +55,9 @@ export default function Navbar() {
                     <ListItem key={text} disablePadding>
                         <ListItemButton>
                             <ListItemIcon>
-                                {index % 2 === 0 ? <Link to={'/Pokemons'}><HomeIcon /></Link> : <Link to={'/Pokemons/info'}><InfoIcon /></Link>}
+                                {index % 2 === 0 ? <Link to={'/Pokemons/'}><HomeIcon /></Link> : <Link to={'/Pokemons/info'}><InfoIcon /></Link>}
                             </ListItemIcon>
-                            <Link to={text === 'Home' ? '/Pokemons' : '/Pokemons/info'}>
+                            <Link to={text === 'Home' ? '/Pokemons/' : '/Pokemons/info'}>
                                 <ListItemText primary={text} />
                             </Link>
                         </ListItemButton>
@@ -72,7 +72,7 @@ export default function Navbar() {
             const response = await axios('https://pokeapi.co/api/v2/pokemon?limit=151');
             const data = response.data.results
             const result = data.filter((pokemon: Pokemon) => {
-                return value && pokemon && pokemon.name && pokemon.name.toLocaleLowerCase().includes(value)
+                return pokemon && pokemon.name && pokemon.name.toLocaleLowerCase().includes(value)
             })
             navigate('/Pokemons/', { replace: true, state: result })
             console.log(result)

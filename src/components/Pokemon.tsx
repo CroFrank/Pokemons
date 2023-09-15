@@ -7,6 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import axios from "axios"
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom';
 
 interface Pokemon {
     name: string
@@ -63,14 +64,16 @@ export function Pokemon({ pokemon }: { pokemon: Pokemon }) {
                     {data.name ? data?.name.toLocaleUpperCase() : 'no data'}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    <b>type:</b>
+                    <b>type/s:</b>
                     {data.types.map((type) => {
                         return <span key={crypto.randomUUID()}> {type.type.name}</span>
                     })}
                 </Typography>
             </CardContent>
             <CardActions>
-                <Button size="small">Learn More</Button>
+                <Link to={`/Pokemons/${data.name}`} state={data} >
+                    <Button size="small">Learn More</Button>
+                </Link>
             </CardActions>
         </Card>
     );

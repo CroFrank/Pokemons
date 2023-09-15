@@ -1,4 +1,4 @@
-import { AllPokemons, HomeLayout, Info } from "./pages"
+import { AllPokemons, HomeLayout, Info, ThePokemon } from "./pages"
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
@@ -9,6 +9,10 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <AllPokemons />,
+      },
+      {
+        path: '/Pokemons/:name',
+        element: <ThePokemon />,
       },
       {
         path: 'info',
