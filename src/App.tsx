@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 const router = createBrowserRouter([
   {
-    path: 'Pokemons',
+    path: '/Pokemons/',
     element: <HomeLayout />,
     children: [
       {

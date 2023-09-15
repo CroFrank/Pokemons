@@ -1,29 +1,22 @@
-import axios from "axios"
 import { useState, useEffect } from 'react'
 import { Pokemon } from "../components/Pokemon"
 import Grid from '@mui/material/Unstable_Grid2'
 import Box from '@mui/material/Box';
+import { useLocation } from "react-router-dom";
+import { sourceData } from '../data/sourceData'
 
-interface Pokemon {
+interface PokemonProps {
     name: string
     url: string
 }
 
 export function AllPokemons() {
-    const [data, setData] = useState([])
-    const fetchData = async () => {
-        try {
-            const response = await axios('https://pokeapi.co/api/v2/pokemon?limit=151');
-            setData(response.data.results)
-        } catch (error) {
-            console.error('Error:', error);
-        }
-    }
+    const [data, setData] = useState(sourceData)
+    const location = useLocation()
 
     useEffect(() => {
-        fetchData()
-    }, [])
-
+        setData(location.state)
+    }, [location.state])
 
     return <>
         <Box sx={{ flexGrow: 1, p: 2 }}>
@@ -32,7 +25,7 @@ export function AllPokemons() {
                 spacing={2}
                 sx={{ display: "flex", justifyContent: "space-around" }}
             >
-                {data.map((pokemon: Pokemon) => {
+                {data.map((pokemon: PokemonProps) => {
                     return <Pokemon key={crypto.randomUUID()} pokemon={pokemon} />
                 })}
             </Grid>

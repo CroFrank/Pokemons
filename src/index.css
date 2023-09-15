@@ -11,3 +11,36 @@
 body {
   background-color: #F9F4ED;
 }
+
+/* Style the container */
+.search-container {
+  padding-right: 40px;
+  position: relative;
+  width: 300px;
+  /* Adjust the width as needed */
+  margin: 20px auto;
+}
+
+/* Style the input field */
+.styled-input {
+  width: 100%;
+  padding: 10px 30px 10px 10px;
+  /* Adjust padding to fit the icon */
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 16px;
+  background-color: #F9F4ED;
+}
+
+/* Style the search icon */
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  font-size: 18px;
+  color: #777;
+  /* Icon color */
+  cursor: pointer;
+}

@@ -56,6 +56,7 @@ export function Pokemon({ pokemon }: { pokemon: Pokemon }) {
                 }}
                 image={data?.sprites.front_default}
                 title={data?.name}
+                component="span"
             />
             <CardContent>
                 <Typography gutterBottom variant="subtitle1" component="div">
@@ -64,7 +65,7 @@ export function Pokemon({ pokemon }: { pokemon: Pokemon }) {
                 <Typography variant="body2" color="text.secondary">
                     <b>type:</b>
                     {data.types.map((type) => {
-                        return <span> {type.type.name}</span>
+                        return <span key={crypto.randomUUID()}> {type.type.name}</span>
                     })}
                 </Typography>
             </CardContent>
