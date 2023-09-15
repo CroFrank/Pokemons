@@ -6,6 +6,14 @@ import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions } from '@mui/material';
 import { useLocation, Link } from 'react-router-dom';
 
+interface Ab {
+    ability: { name: string }
+}
+
+interface Type {
+    type: { name: string }
+}
+
 export function ThePokemon() {
     const { state } = useLocation();
 
@@ -33,12 +41,12 @@ export function ThePokemon() {
                                 <li> <b>Height:</b> {state.height} inches</li>
                                 <li> <b>Weight:</b> {state.weight} pounds</li>
                                 <li> <b>Abilities:</b>
-                                    <ol>{state.abilities.map((ab) => {
+                                    <ol>{state.abilities.map((ab: Ab) => {
                                         return <li key={crypto.randomUUID()}>{ab.ability.name}</li>
                                     })} </ol>
                                 </li>
                                 <li> <b>Types:</b>
-                                    <ol>{state.types.map((type) => {
+                                    <ol>{state.types.map((type: Type) => {
                                         return <li key={crypto.randomUUID()}> {type.type.name}</li>
                                     })}</ol>
                                 </li>
