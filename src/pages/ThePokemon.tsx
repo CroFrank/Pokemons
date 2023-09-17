@@ -38,7 +38,7 @@ export function ThePokemon() {
                         </Typography>
                         <Typography variant="body2" color="text.secondary">
                             <ul>
-                                <li> <b>Height:</b> {state.height} inches</li>
+                                <li> <b>Height:</b> {state.height} feet</li>
                                 <li> <b>Weight:</b> {state.weight} pounds</li>
                                 <li> <b>Abilities:</b>
                                     <ol>{state.abilities.map((ab: Ab) => {
